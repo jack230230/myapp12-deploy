@@ -85,7 +85,7 @@ myapp12-ts:
   fullnameOverride: myapp12-ts
   image:
     repository: ghcr.io/jack230230/myapp12-ts
-    tag: main
+    tag: 8a46d39
   imagePullSecrets:
     - name: myapp12-docker
   ingress:
