@@ -1,27 +1,27 @@
 myapp12-java:
   env:
-  - name: HOST
-    value: h8r.dev
-  - name: ENV_NAME
-    value: my_secret
+    - name: HOST
+      value: h8r.dev
+    - name: ENV_NAME
+      value: my_secret
   fullnameOverride: myapp12-java
   image:
     repository: ghcr.io/jack230230/myapp12-java
     tag: main
   imagePullSecrets:
-  - name: myapp12-docker
+    - name: myapp12-docker
   ingress:
     annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     className: nginx
     enabled: true
     hosts:
-    - host: myapp12.h8r.site
-      paths:
-      - path: /api(/|$)(.*)
-        pathType: ImplementationSpecific
-      - path: /v2/api(/|$)(.*)
-        pathType: ImplementationSpecific
+      - host: myapp12.h8r.site
+        paths:
+          - path: /api(/|$)(.*)
+            pathType: ImplementationSpecific
+          - path: /v2/api(/|$)(.*)
+            pathType: ImplementationSpecific
   nocalhost:
     command:
       debug: ./gradlew bootrun --debug-jvm
@@ -33,33 +33,33 @@ myapp12-java:
     image: ghcr.io/jack230230/myapp12-java
     language: java
     persistentVolumeDirs:
-    - capacity: 20Gi
-      path: /home/nocalhost-dev
-    - capacity: 20Gi
-      path: /root/.m2
+      - capacity: 20Gi
+        path: /home/nocalhost-dev
+      - capacity: 20Gi
+        path: /root/.m2
     remoteDebugPort: 9009
   service:
     targetPort: 8080
 myapp12-py:
   env:
-  - name: HOST
-    value: h8r.dev
-  - name: ENV_NAME
-    value: my_secret
+    - name: HOST
+      value: h8r.dev
+    - name: ENV_NAME
+      value: my_secret
   fullnameOverride: myapp12-py
   image:
     repository: ghcr.io/jack230230/myapp12-py
-    tag: main
+    tag: e24e85f
   imagePullSecrets:
-  - name: myapp12-docker
+    - name: myapp12-docker
   ingress:
     className: nginx
     enabled: true
     hosts:
-    - host: myapp12.h8r.site
-      paths:
-      - path: /
-        pathType: ImplementationSpecific
+      - host: myapp12.h8r.site
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
   nocalhost:
     command:
       debug: NH_PLUGIN=VSCode ./debug.sh
@@ -71,31 +71,31 @@ myapp12-py:
     image: ghcr.io/jack230230/myapp12-py
     language: python
     persistentVolumeDirs:
-    - capacity: 20Gi
-      path: /home/nocalhost-dev
+      - capacity: 20Gi
+        path: /home/nocalhost-dev
     remoteDebugPort: 9009
   service:
     targetPort: 5000
 myapp12-ts:
   env:
-  - name: HOST
-    value: h8r.dev
-  - name: ENV_NAME
-    value: my_secret
+    - name: HOST
+      value: h8r.dev
+    - name: ENV_NAME
+      value: my_secret
   fullnameOverride: myapp12-ts
   image:
     repository: ghcr.io/jack230230/myapp12-ts
     tag: main
   imagePullSecrets:
-  - name: myapp12-docker
+    - name: myapp12-docker
   ingress:
     className: nginx
     enabled: true
     hosts:
-    - host: myapp12.h8r.site
-      paths:
-      - path: /
-        pathType: ImplementationSpecific
+      - host: myapp12.h8r.site
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
   nocalhost:
     command:
       debug: npm install && npm run dev
@@ -107,8 +107,8 @@ myapp12-ts:
     image: ghcr.io/jack230230/myapp12-ts
     language: typescript
     persistentVolumeDirs:
-    - capacity: 20Gi
-      path: /home/nocalhost-dev
+      - capacity: 20Gi
+        path: /home/nocalhost-dev
     remoteDebugPort: 9009
   service:
     targetPort: 5000
