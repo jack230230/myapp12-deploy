@@ -7,7 +7,7 @@ myapp12-java:
   fullnameOverride: myapp12-java
   image:
     repository: ghcr.io/jack230230/myapp12-java
-    tag: main
+    tag: 1b06efa
   imagePullSecrets:
     - name: myapp12-docker
   ingress:
